@@ -10,6 +10,7 @@ export const Counter = () => {
     const [incrementAmount, setIncrementAmount] = useState("2")
     const incrementValue = Number(incrementAmount) || 0
     useEffect(() => {
+        setIncrementAmount("30")
         dispatch(reset(30))
     },[])
 
