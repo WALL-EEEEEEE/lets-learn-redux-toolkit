@@ -1,14 +1,24 @@
-import "./App.css"
-import { Counter } from "./features/counter/Counter"
-import logo from "./logo.svg"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-const App = () => {
+import { Navbar } from './components/Navbar'
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <section>
+                <h2>Welcome to the Redux Essentials example app!</h2>
+              </section>
+            }
+          ></Route>
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
