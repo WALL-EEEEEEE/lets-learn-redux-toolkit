@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
-import counterReducer from "../features/counter/counter-slice";
+import counterReducer from "../features/counter/counterSlice";
 
 import { apiSlice } from "../features/dogs/dogs-api-slice";
 
@@ -15,6 +15,12 @@ export const store = configureStore({
     }
 });
 
+export type AppStore = typeof store
 export type AppDispatch = typeof store.dispatch;
-
 export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ThunkReturnType = void> = ThunkAction<
+    ThunkReturnType,
+    RootState,
+    unknown,
+    Action
+>
